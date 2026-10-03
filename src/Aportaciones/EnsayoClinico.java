@@ -15,17 +15,29 @@ public class EnsayoClinico {
 		
 		System.out.print("Y su apellido si es tan amable: ");
 		String apellido = scanner.nextLine();
-
-		System.out.println("Hola, " + nombre + " " + apellido);
 		
+	// Le devuelve al usuario un saludo
+		System.out.println("Hola, " + nombre + " " + apellido + " gracias por participar");
+		
+	// Proceso de selección, solo se aceptará en el estudio a mayores de edad
 		System.out.print("Introduzca su edad: ");
-		String edad = scanner.nextLine();
+		int edad = scanner.nextInt();
+		scanner.nextLine();
 		
-		System.out.print("Para proceder deberá aceptar los términos y condiciones, escriba SÍ, si está de acuerdo: ");
-		String confirmación = scanner.nextLine();
-		
-		if(confirmación.equals("SÍ")) {
-			System.out.println("Gracias por participar, " + nombre + " " + apellido + " , el ensayo comenzará en breve.");
+		if (edad >= 18) {
+		    System.out.println("Cumple los requisitos. Puede continuar.");
+		    System.out.print("Para proceder deberá aceptar los términos y condiciones, escriba SÍ, si está de acuerdo: ");
+			String confirmación = scanner.nextLine();
+	
+	// Si los usuarios son mayores de edad, se comprueba que acepten los términos y condiciones
+			if(confirmación.equals("SÍ")) {
+				System.out.println("Gracias por participar, " + nombre + " " + apellido + " , el ensayo comenzará en breve.");
+			}
+
+	// Alternativa si no es un usuario válido
+		} else {
+		    System.out.println("No tiene la edad mínima como para participar en este estudio.");
+			System.out.println("Lo sentimos, no cumple los criterios para formar parte de este ensayo");
 		}
 
 		scanner.close();
